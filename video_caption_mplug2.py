@@ -238,7 +238,9 @@ def main(args, config):
     #### Model ####
     print("Creating model")
     model = MPLUG2(config=config, tokenizer=tokenizer)
-    model = model.to(device)
+    print(f"[DEBUG] {device}")
+    model = model.to('cpu')
+    # model = model.to(device)
 
     if not args.do_two_optim:
         arg_opt = utils.AttrDict(config['optimizer'])
@@ -288,7 +290,8 @@ def main(args, config):
         print(msg)
 
     model_without_ddp = model
-    if args.distributed:
+    if 1 == 0 and args.distributed:
+    # if args.distributed:
         #model = torch.nn.parallel.DistributedDataParallel(model, device_ids=[args.gpu], find_unused_parameters=True)
         import apex
         model = apex.parallel.DistributedDataParallel(model, delay_allreduce=True)
