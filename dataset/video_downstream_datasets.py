@@ -414,10 +414,15 @@ class video_caption_dataset(Dataset):
             return video_array, caption
             
         else:
+            print(f"[debug] ann {ann}")
             video_id = ann['video_id']
-            video_path = os.path.join(self.video_root, ann['video_id'] + '.mp4')
+            print(f"[DEBUG] {video_id} {type(video_id)}")
+            video_path = f"{self.video_root}/video{ann['video_id']}.mp4"
+            # video_path = os.path.join(self.video_root, f"video{ann['video_id']}" + '.mp4')
+            print(f"[DEBUG] {self.video_root}")
+            print(f"[DEBUG] {video_path}")
             if not os.path.exists(video_path):
-                video_path = os.path.join(self.video_root, ann['video_id'] + '.avi')
+                video_path = os.path.join(self.video_root, f"video{ann['video_id']}" + '.avi')
             video_array = read_frames_decord(video_path, num_frames=self.num_frames, sample='middle')
             golden_captions = [x.lower() for x in ann['golden_captions']]
             

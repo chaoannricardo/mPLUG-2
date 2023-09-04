@@ -128,8 +128,9 @@ def evaluation(model, data_loader, tokenizer, device, config):
     result = []
 
     answer_input = None
-    for n, (video, video_ids, gold_caption) in enumerate(metric_logger.log_every(data_loader, print_freq, header)):        
-        video = video.to(device,non_blocking=True)         
+    for n, (video, video_ids, gold_caption) in enumerate(metric_logger.log_every(data_loader, print_freq, header)):
+        video = video.to('cpu',non_blocking=True)             
+        # video = video.to(device,non_blocking=True)         
         # caption = [each+config['eos'] for each in caption]
         # question_input = [config['bos']+" "+each for each in object_labels]
         # caption = tokenizer(caption, padding='longest', truncation=True, max_length=args.max_input_length, return_tensors="pt").to(device)

@@ -35,5 +35,5 @@ text_decoder: bert-base-uncased
 text_encoder: bert-base-uncased
 train_file: /Users/ricardo/Code/datasets/MSR-VTT/ResultNew/caption.json
 use_checkpoint: true
-video_root: "\u2018/Users/ricardo/Code/datasets/MSR-VTT/TrainValVideol\u2019"
+video_root: /Users/ricardo/Code/datasets/MSR-VTT/TrainValVideo
 vision_width: 1024

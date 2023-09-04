@@ -20,7 +20,7 @@ read_local_data: true
 # video_root: datasets/MSRVTT/data/MSRVTT/videos/all"
 train_file: '/Users/ricardo/Code/datasets/MSR-VTT/ResultNew/caption.json'
 test_file: '/Users/ricardo/Code/datasets/MSR-VTT/ResultNew/caption.json'
-video_root: ‘/Users/ricardo/Code/datasets/MSR-VTT/TrainValVideol’
+video_root: /Users/ricardo/Code/datasets/MSR-VTT/TrainValVideo
 
 beam_size: 5
 
