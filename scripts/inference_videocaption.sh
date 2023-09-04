@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
 MASTER_ADDR=127.0.0.1
-MASTER_PORT=2$(($RANDOM % 10))$(($RANDOM % 10))15
+# MASTER_PORT=2$(($RANDOM % 10))$(($RANDOM % 10))15
+MASTER_PORT=29915
 WORLD_SIZE=1
 RANK=0
 
 GPU_NUM=1
 TOTAL_GPU=$((WORLD_SIZE * GPU_NUM))
 
-checkpoint_dir='pretrained_mplug_2.pth'
-output_dir='output/videoqa_msrvtt_'${TOTAL_GPU}
+# checkpoint_dir='pretrained_mplug_2.pth'
+checkpoint_dir='/Users/ricardo/Code/datasets/mPLUG2_Pretrain.pth'
+# output_dir='output/videoqa_msrvtt_'${TOTAL_GPU}
+output_dir='/Users/ricardo/Code/datasets/MSR-VTT/Output/videoqa_msrvtt_'${TOTAL_GPU}
 
 mkdir -p ${output_dir}
 python -u -m torch.distributed.launch --nproc_per_node=$GPU_NUM \
