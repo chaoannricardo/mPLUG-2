@@ -44,7 +44,8 @@ def initialize_clip(config, num_patches=240):
         num_patches = int(config['image_res']*config['image_res']/(16*16))
         pos_embed = nn.Parameter(torch.zeros(num_patches + 1, 768).float())
     elif config["clip_name"] == "ViT-L-14":
-        clip_model, preprocess = clip.load("ViT-L-14.tar", jit=False)
+        # clip_model, preprocess = clip.load("ViT-L-14.tar", jit=False)
+        clip_model, preprocess = clip.load("/Users/ricardo/Code/datasets/ViT-L-14.tar", jit=False)
         num_patches = int(config['image_res']*config['image_res']/(14*14))
         pos_embed = nn.Parameter(torch.zeros(num_patches + 1, 1024).float())    
     pos_embed.weight = resize_pos_embed(clip_model.visual.positional_embedding.unsqueeze(0), pos_embed.unsqueeze(0))
@@ -60,7 +61,8 @@ def initialize_clip_video(config, num_patches=240, T=8, use_checkpoint=False):
         num_patches = int(config['image_res']*config['image_res']/(16*16))
         pos_embed = nn.Parameter(torch.zeros(num_patches + 1, 768).float())
     elif config["clip_name"] == "ViT-L-14":
-        clip_model, preprocess = clip_video.load("ViT-L-14.tar", jit=False, img_size=config['image_res'], T=T, 
+        # clip_model, preprocess = clip_video.load("ViT-L-14.tar", jit=False, img_size=config['image_res'], T=T, 
+        clip_model, preprocess = clip_video.load("/Users/ricardo/Code/datasets/ViT-L-14.tar", jit=False, img_size=config['image_res'], T=T, 
             use_checkpoint=use_checkpoint, config=config)
         num_patches = int(config['image_res']*config['image_res']/(14*14))
         pos_embed = nn.Parameter(torch.zeros(num_patches + 1, 1024).float())    

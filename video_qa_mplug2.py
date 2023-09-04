@@ -419,7 +419,8 @@ def main(args, config):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--config', default='./configs/VQA.yaml')
+    # parser.add_argument('--config', default='./configs/VQA.yaml')
+    parser.add_argument('--config', default='./configs_video/VideoQA_msrvtt_large.yaml')
     parser.add_argument('--checkpoint', default='')
     parser.add_argument('--output_dir', default='output/vqa')
     parser.add_argument('--evaluate', action='store_true')

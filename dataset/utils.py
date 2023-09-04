@@ -51,6 +51,7 @@ from tqdm import tqdm
 
 
 def load_jsonl(filename):
+    print('[DEBUG]', filename)
     with open(filename, "r") as f:
         return [json.loads(l.strip("\n")) for l in f.readlines()]
 

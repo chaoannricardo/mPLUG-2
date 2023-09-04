@@ -21,7 +21,8 @@ python -u -m torch.distributed.launch --nproc_per_node=$GPU_NUM \
 	--node_rank=$RANK \
     --use_env \
     video_caption_mplug2.py \
-    --config ./configs_video/VideoCaption_msvd_large.yaml \
+    # --config ./configs_video/VideoCaption_msvd_large.yaml \
+    --config ./configs_video/VideoCaption_msrvtt_large.yaml \
     --text_encoder bert-large-uncased \
     --text_decoder bert-large-uncased \
     --output_dir ${output_dir} \
